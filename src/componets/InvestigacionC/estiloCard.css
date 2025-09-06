@@ -1,0 +1,23 @@
+.foca-card {
+
+    
+    
+    
+    text-align: center;
+    
+}
+
+
+.foca-image {
+    width: 80%;
+    height: auto;
+    position: fixed;
+    top: 5rem;
+    left: 30rem;
+    z-index: -1;
+    opacity: 0.5;
+
+}
+
+
+

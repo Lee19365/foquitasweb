@@ -1,0 +1,57 @@
+.top-bar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #E4CCC8;
+    color : #000;
+    display: flex;
+}
+
+.menu-button {
+  background: none;      /* Sin fondo */
+  border: none;          /* Sin borde */
+  box-shadow: none;      /* Sin sombra */
+  padding: 20;            
+  cursor: pointer;       /* Que se vea clickeable */
+   
+
+}
+.menu-button img {
+    display: block;        /* Evita espacio extra debajo */
+    width: 40px;           /* Tamaño del icono, ajusta a tu gusto */
+    height: 38px;
+    user-select: none;     /* Para que no se pueda seleccionar la imagen */
+    pointer-events: none;  /* Opcional: evita que la imagen reciba clicks */
+}
+
+.map-button {
+  background: none;      /* Sin fondo */
+  border: none;          /* Sin borde */
+  box-shadow: none;      /* Sin sombra */
+  margin-left: 250px;
+  cursor: pointer;       /* Que se vea clickeable */
+}
+.map-button img {
+    display: block;        /* Evita espacio extra debajo */
+    width: 40px;           /* Tamaño del icono, ajusta a tu gusto */
+    height: 38px;
+    user-select: none;     /* Para que no se pueda seleccionar la imagen */
+    pointer-events: none;  /* Opcional: evita que la imagen reciba clicks */
+}
+
+.statistics-button {
+ background: none;      /* Sin fondo */
+  border: none;          /* Sin borde */
+  box-shadow: none;      /* Sin sombra */
+  margin-left: 20px;
+  cursor: pointer;       /* Que se vea clickeable */
+}
+.statistics-button img {
+    display: block;        /* Evita espacio extra debajo */
+    width: 38px;           /* Tamaño del icono, ajusta a tu gusto */
+    height: 40px;
+    user-select: none;     /* Para que no se pueda seleccionar la imagen */
+    pointer-events: none;  /* Opcional: evita que la imagen reciba clicks */
+  
+}
