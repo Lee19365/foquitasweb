@@ -7,7 +7,8 @@ export function InfoFocasCard({ titulo, imagen, descripcion }) {
             <h2 className="titulo">{titulo}</h2>
             <img src={imagen} alt={titulo} />
             
-            <p>{descripcion}</p>
+            <p className="descripcion">{descripcion}</p>
+
         </div>
     );
 }
