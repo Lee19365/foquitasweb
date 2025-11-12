@@ -5,6 +5,7 @@ import Sidebar from './componets/side/Sidebar.js';
 import { GaleriaFocas } from './componets/infdefocascard/GaleriaFocas.js';
 import { FocaImage } from './componets/InvestigacionC/iniciocard.js';
 import './App.css';
+import { Apoyos } from './componets/apoyos/galeriaApoyo.js';
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -39,6 +40,7 @@ function App() {
 
             {/* Página de galería de focas */}
             <Route path="/focas" element={<GaleriaFocas />} />
+            <Route path='/apoyos' element={<Apoyos/>} />
           </Routes>
         </main>
       </div>

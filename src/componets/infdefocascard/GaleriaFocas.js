@@ -131,6 +131,13 @@ export function GaleriaFocas() {
 
   return (
     <div className="contenedor">
+      <div style={{display: "flex", gap: "10px" }}>
+        <button onClick={anteriorFoca} style={botonStyle}>Anterior</button>
+        <button onClick={siguienteFoca} style={botonStyle}>Siguiente</button>
+        <button onClick={() => setEditando(!editando)} style={botonStyle}>
+          {editando ? "Cancelar" : "Editar"}
+        </button>
+      </div>
       {focaActual && (
         editando ? (
           <div className="card">
@@ -157,13 +164,7 @@ export function GaleriaFocas() {
         )
       )}
 
-      <div style={{ marginTop: "20px", display: "flex", gap: "10px" }}>
-        <button onClick={anteriorFoca} style={botonStyle}>Anterior</button>
-        <button onClick={siguienteFoca} style={botonStyle}>Siguiente</button>
-        <button onClick={() => setEditando(!editando)} style={botonStyle}>
-          {editando ? "Cancelar" : "Editar"}
-        </button>
-      </div>
+      
     </div>
   );
 }
