@@ -1,58 +1,242 @@
 .sidebar {
     position: fixed;
     left: 0;
-    top: 0;
-    height: 100%;
-    width: 300px;
-    background-color: #FFECE9;
+    top: 60px;
+    height: calc(100% - 60px);
+    width: 320px;
+    background: linear-gradient(180deg, #FFECE9 0%, #FFD7D2 100%);
     transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000;
-    top:60px;
-    
-    display:flow-root;
-    justify-content: center;
-    padding:1rem; /* Espacio interno para evitar que los botones toquen bordes */
-    
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 1.2rem;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
 }
 
 .sidebar.open {
-  transform: translateX(0);
+    transform: translateX(0);
 }
 
 .sidebar.closed {
-  transform: translateX(-100%);
+    transform: translateX(-100%);
 }
 
+/* Título del menú */
+.sidebar::before {
+    content: '📚 Menú de Navegación';
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #2C5F7C;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid rgba(74, 144, 164, 0.3);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+}
 
-/* Elimina position: fixed de .Btn y ajusta márgenes */
 .Btn {
-    background-color: #C3D7DD;
-    width: 300px;
-    height: 60px;
-    border-radius: 10px;
+    background: linear-gradient(135deg, #C3D7DD 0%, #A8C5CE 100%);
+    width: 100%;
+    height: auto;
+    min-height: 75px;
+    border-radius: 15px;
     cursor: pointer;  
-    border: none;
+    border: 3px solid transparent;
     display: flex;
-    justify-content: center;
-    right: 1rem;
+    justify-content: flex-start;
     align-items: center;
-    gap: 12px;
-    /* position: fixed; <-- Elimina esta línea */
-    margin-bottom: 1rem; /* Espacio entre botones */
-    
+    gap: 18px;
+    padding: 18px 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
+/* Efecto de brillo al pasar el mouse */
+.Btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    transition: left 0.6s ease;
+}
 
+.Btn:hover::before {
+    left: 100%;
+}
 
+/* Borde izquierdo animado */
+.Btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: linear-gradient(180deg, #4A90A4, #87CEEB);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
 
+.Btn:hover::after {
+    transform: scaleY(1);
+}
 
-/* Resto del CSS se mantiene igual */
+.Btn:hover {
+    transform: translateX(10px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(74, 144, 164, 0.35);
+    background: linear-gradient(135deg, #A8C5CE 0%, #91B8C6 100%);
+    border-color: rgba(74, 144, 164, 0.4);
+}
+
+.Btn:active {
+    transform: translateX(10px) scale(0.98);
+    box-shadow: 0 4px 12px rgba(74, 144, 164, 0.25);
+}
+
 .Btn img {
-    width: 33px;
-    height: 33px;
+    width: 42px;
+    height: 42px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
 }
+
+.Btn:hover img {
+    transform: rotate(12deg) scale(1.15);
+    filter: drop-shadow(3px 3px 6px rgba(74, 144, 164, 0.4));
+}
+
 .Btn h2 {
-    margin-top: 25px;
-    font-family: Javanese Text;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2C5F7C;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.3px;
+    transition: color 0.3s ease;
+}
+
+.Btn:hover h2 {
+    color: #1a4a5f;
+}
+
+/* Scrollbar personalizado */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #C3D7DD, #A8C5CE);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #A8C5CE, #91B8C6);
+}
+
+/* Animación de entrada para cada botón */
+.sidebar.open .Btn:nth-child(2) {
+    animation: slideInBtn 0.4s ease-out 0.1s backwards;
+}
+
+.sidebar.open .Btn:nth-child(3) {
+    animation: slideInBtn 0.4s ease-out 0.2s backwards;
+}
+
+.sidebar.open .Btn:nth-child(4) {
+    animation: slideInBtn 0.4s ease-out 0.3s backwards;
+}
+
+.sidebar.open .Btn:nth-child(5) {
+    animation: slideInBtn 0.4s ease-out 0.4s backwards;
+}
+
+@keyframes slideInBtn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Overlay para cerrar el menú en móvil */
+.sidebar-overlay {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 280px;
+        padding: 1.5rem 0.8rem;
+    }
+    
+    .sidebar::before {
+        font-size: 1.1rem;
+    }
+    
+    .Btn {
+        min-height: 70px;
+        padding: 16px 18px;
+        gap: 15px;
+    }
+    
+    .Btn h2 {
+        font-size: 1.05rem;
+    }
+    
+    .Btn img {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 260px;
+    }
+    
+    .Btn {
+        min-height: 65px;
+        padding: 14px 16px;
+    }
+    
+    .Btn h2 {
+        font-size: 1rem;
+    }
 }

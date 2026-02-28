@@ -1,51 +1,81 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { TobBar, MenuButton, MapButton, StatisticsBTN } from './componets/head/TobBar.js';
 import Sidebar from './componets/side/Sidebar.js';
 import { GaleriaFocas } from './componets/infdefocascard/GaleriaFocas.js';
-import { FocaImage } from './componets/InvestigacionC/iniciocard.js';
-import './App.css';
+import { FocaImage, WelcomePage } from './componets/InvestigacionC/iniciocard.js';
 import { Apoyos } from './componets/apoyos/galeriaApoyo.js';
+import Estadisticas from './componets/estadisticasver/Estadisticas.js';
+import './App.css';
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+  const closeSidebar = () => setSidebarOpen(false);
 
   return (
-    <Router>
-      <div className="App">
-        <Sidebar isOpen={sidebarOpen} />
+    <div className="App">
+      <Sidebar isOpen={sidebarOpen} onClose={closeSidebar} />
 
-        <header className="App-header">
-          <TobBar>
-            <MenuButton onClick={() => setSidebarOpen(!sidebarOpen)} />
-            <MapButton onClick={() => alert('Mapa no disponible')} />
-            <StatisticsBTN onClick={() => alert('Estadísticas no disponibles')} />
-          </TobBar>
-        </header>
+      <header className="App-header">
+        <TobBar>
+          <MenuButton onClick={toggleSidebar} />
+          <MapButton onClick={() => alert('🗺️ Mapa de conservación - Próximamente')} />
+          <StatisticsBTN onClick={() => navigate('/estadisticas')} />
+        </TobBar>
+      </header>
 
-        <main>
-          <FocaImage />
-          <Routes>
-            {/* Página principal */}
-            <Route 
-              path="/" 
-              element={
-                <>
-                  
-                  <h1>Bienvenidos a FoquitasWeb</h1>
-                  <p>Explora y aprende sobre las diferentes especies de focas.</p>
-                </>
-              } 
-            />
+      <main>
+        <Routes>
+          <Route path="/" element={<WelcomePage />} />
 
-            {/* Página de galería de focas */}
-            <Route path="/focas" element={<GaleriaFocas />} />
-            <Route path='/apoyos' element={<Apoyos/>} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
+          <Route 
+            path="/focas" 
+            element={
+              <>
+                <FocaImage />
+                <GaleriaFocas />
+              </>
+            } 
+          />
+          
+          <Route 
+            path="/apoyos" 
+            element={
+              <>
+                <FocaImage />
+                <Apoyos />
+              </>
+            } 
+          />
+          
+          <Route 
+            path="/foro" 
+            element={
+              <>
+                <FocaImage />
+                <div style={{ animation: 'fadeInUp 1s ease-out' }}>
+                  <h1>Foro Comunitario 💬</h1>
+                  <p>Próximamente podrás compartir experiencias...</p>
+                </div>
+              </>
+            } 
+          />
+
+          <Route path="/estadisticas" element={<Estadisticas />} />
+        </Routes>
+      </main>
+    </div>
   );
 }
 
-export default App;
+// Exportamos el componente envuelto en Router
+export default function AppWithRouter() {
+  return (
+    <Router>
+      <App />
+    </Router>
+  );
+}
