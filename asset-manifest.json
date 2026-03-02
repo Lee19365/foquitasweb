@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.135169fa.css",
+    "main.js": "/static/js/main.f751a3ad.js",
+    "static/js/453.8f998dc7.chunk.js": "/static/js/453.8f998dc7.chunk.js",
+    "static/media/elefante-norte.png": "/static/media/elefante-norte.6f1873d8f463e90c19a3.png",
+    "static/media/foca-comun.png": "/static/media/foca-comun.103a6bf6e25c551cafbe.png",
+    "static/media/foca.png": "/static/media/foca.bcfb7af24396f8b9cc67.png",
+    "static/media/foca-franjeada.png": "/static/media/foca-franjeada.7792b6a010e8f2aa01e6.png",
+    "static/media/foca-gris.png": "/static/media/foca-gris.bbd10256234e926e588a.png",
+    "static/media/foca-monje.png": "/static/media/foca-monje.a2d6babe886ce98beaef.png",
+    "static/media/Foca-Hawaii .png": "/static/media/Foca-Hawaii .70f6dd870e270b141692.png",
+    "static/media/foca-barbuda.png": "/static/media/foca-barbuda.48616eebb98e2110d4c1.png",
+    "static/media/producto1.png": "/static/media/producto1.6032050e20c3d68652c2.png",
+    "static/media/produnto2.png": "/static/media/produnto2.9979c7c83e5500e4d938.png",
+    "static/media/foca-caspio.png": "/static/media/foca-caspio.38d43ed73c030d790e2a.png",
+    "static/media/foca-wendell.png": "/static/media/foca-wendell.ed397f8c0be1cc9692b1.png",
+    "static/media/foca-leopardo.png": "/static/media/foca-leopardo.d9abd0cdb8b1afc7cea8.png",
+    "static/media/foca-casco.png": "/static/media/foca-casco.ab8246399ac39371ead3.png",
+    "static/media/foca-moteada.png": "/static/media/foca-moteada.42f278c0648076ade048.png",
+    "static/media/foca-anillada.png": "/static/media/foca-anillada.dcbb91451ca94a1e76f2.png",
+    "static/media/foca-baikal.png": "/static/media/foca-baikal.ec95c04381aee46c26ca.png",
+    "static/media/apoyo.png": "/static/media/apoyo.a50dcc4aea98eed7bc18.png",
+    "static/media/foca-ross.png": "/static/media/foca-ross.6a6e7e298f5c2e1b4fb6.png",
+    "static/media/foca-cangrejera.png": "/static/media/foca-cangrejera.9d6ec3b68e25560f3a0b.png",
+    "static/media/foca-harp.png": "/static/media/foca-harp.ab1d6b8bba0833627428.png",
+    "static/media/elefante-sur.png": "/static/media/elefante-sur.1988cf27e7852b6a502d.png",
+    "index.html": "/index.html",
+    "main.135169fa.css.map": "/static/css/main.135169fa.css.map",
+    "main.f751a3ad.js.map": "/static/js/main.f751a3ad.js.map",
+    "453.8f998dc7.chunk.js.map": "/static/js/453.8f998dc7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.135169fa.css",
+    "static/js/main.f751a3ad.js"
+  ]
+}
