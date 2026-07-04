@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import { TobBar, MenuButton, MapButton, StatisticsBTN } from './componets/head/TobBar.js';
-import Sidebar from './componets/side/Sidebar.js';
-import { GaleriaFocas } from './componets/infdefocascard/GaleriaFocas.js';
-import { FocaImage, WelcomePage } from './componets/InvestigacionC/iniciocard.js';
-import { Apoyos } from './componets/apoyos/galeriaApoyo.js';
-import Estadisticas from './componets/estadisticasver/Estadisticas.js';
+import { TobBar, MenuButton, MapButton, StatisticsBTN } from './components/head/TobBar.js';
+import Sidebar from './components/side/Sidebar.js';
+import { GaleriaFocas } from './components/infdefocascard/GaleriaFocas.js';
+import { FocaImage, WelcomePage } from './components/InvestigacionC/iniciocard.js';
+import { Apoyos } from './components/apoyos/galeriaApoyo.js';
+import Estadisticas from './components/estadisticasver/Estadisticas.js';
 import './App.css';
 
 function App() {
@@ -74,7 +74,7 @@ function App() {
 // Exportamos el componente envuelto en Router
 export default function AppWithRouter() {
   return (
-    <Router>
+    <Router basename="/foquitasweb"> {/* <-- AGREGA ESTO AQUÍ */}
       <App />
     </Router>
   );
